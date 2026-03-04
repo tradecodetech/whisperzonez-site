@@ -1,29 +1,44 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* FADE-IN SCROLL ANIMATION */
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) entry.target.classList.add("visible");
-        });
-    }, { threshold: 0.2 });
+const observer = new IntersectionObserver(entries => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add("visible")
+}
+})
+},{threshold:0.12})
 
-    document.querySelectorAll(".fade").forEach(el => observer.observe(el));
+document.querySelectorAll(".fade").forEach(el => observer.observe(el))
 
-    /* DARK MODE TOGGLE */
-    const toggle = document.createElement("div");
-    toggle.className = "toggle";
-    toggle.innerText = "Dark Mode";
-    toggle.onclick = () => document.body.classList.toggle("dark");
-    document.body.appendChild(toggle);
+const menuBtn = document.getElementById("menu-btn")
+const mobileNav = document.getElementById("mobile-nav")
 
-    /* MOBILE NAVIGATION */
-    const menuBtn = document.getElementById("menu-btn");
-    const mobileNav = document.getElementById("mobile-nav");
+if(menuBtn && mobileNav){
 
-    if (menuBtn && mobileNav) {
-        menuBtn.addEventListener("click", () => {
-            mobileNav.style.display =
-                mobileNav.style.display === "flex" ? "none" : "flex";
-        });
-    }
-});
+menuBtn.addEventListener("click", ()=>{
+
+const open = mobileNav.style.display === "flex"
+
+mobileNav.style.display = open ? "none" : "flex"
+
+menuBtn.textContent = open ? "☰" : "✕"
+
+})
+
+}
+
+const currentPage = window.location.pathname.split("/").pop() || "index.html"
+
+document.querySelectorAll(".nav-links a, .mobile-nav a").forEach(link=>{
+
+const href = link.getAttribute("href")
+
+if(href === currentPage){
+
+link.classList.add("active")
+
+}
+
+})
+
+})
