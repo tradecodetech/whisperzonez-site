@@ -53,8 +53,12 @@
                 <li>Educational Content Library</li>
             </ul>
 
-            <a href="#apply" class="tier-btn tier-btn-gold">
-                Join WhisperZonez
+            <a href="https://whop.com/kvfx-algo-indicator/kvfx-x-whisperzonez-foundation/"
+               class="tier-btn tier-btn-gold"
+               target="_blank" rel="noopener">
+
+               Start WhisperZonez Access
+
             </a>
 
         </div>
@@ -82,8 +86,12 @@
                 <li>Priority Community Access</li>
             </ul>
 
-            <a href="#apply" class="tier-btn tier-btn-outline">
-                Join Operators Foundation
+            <a href="https://whop.com/kvfx-algo-indicator/operator-foundation/"
+               class="tier-btn tier-btn-outline"
+               target="_blank" rel="noopener">
+
+               Start Operators Foundation
+
             </a>
 
         </div>
@@ -113,8 +121,11 @@
                 <li>Small Group Systems Workshops</li>
             </ul>
 
-            <a href="#apply" class="tier-btn tier-btn-outline">
-                Join Operator Systems Lab
+            <a href="#"
+               class="tier-btn tier-btn-outline">
+
+               Coming Soon
+
             </a>
 
         </div>
@@ -129,17 +140,17 @@
 <section class="section-alt fade" id="apply">
 
     <div style="text-align:center; margin-bottom:40px;">
-        <div class="eyebrow">Apply to Join</div>
+        <div class="eyebrow">Join the Community</div>
         <h2>Start Your Membership</h2>
 
         <p class="section-sub">
-            Select your membership tier and tell us a bit about your trading experience.
+            Select your membership tier and continue to checkout.
         </p>
     </div>
 
     <div style="max-width:600px; margin:0 auto;">
 
-        <form>
+        <form id="tierForm">
 
             <div class="form-group">
                 <label>Name</label>
@@ -154,23 +165,19 @@
             <div class="form-group">
                 <label>Select Tier</label>
 
-                <select>
+                <select id="tierSelect">
 
-                    <option>WhisperZonez — $89.99</option>
-                    <option>Operators Foundation — $149</option>
-                    <option>Operator Systems Lab — $249</option>
+                    <option value="">Select a tier...</option>
+                    <option value="wz">WhisperZonez — $89.99</option>
+                    <option value="op">Operators Foundation — $149</option>
+                    <option value="sys">Operator Systems Lab — $249</option>
 
                 </select>
 
             </div>
 
-            <div class="form-group">
-                <label>Trading Background</label>
-                <textarea rows="4" placeholder="Tell us about your trading experience"></textarea>
-            </div>
-
-            <button class="tier-btn tier-btn-gold">
-                Submit Application
+            <button type="submit" class="tier-btn tier-btn-gold">
+                Continue to Checkout
             </button>
 
         </form>
@@ -181,6 +188,42 @@
 
 
 <script src="script.js"></script>
+
+
+<script>
+
+/* Redirect form based on selected tier */
+
+document.getElementById("tierForm").addEventListener("submit", function(e) {
+
+    e.preventDefault();
+
+    const tier = document.getElementById("tierSelect").value;
+
+    if (tier === "wz") {
+
+        window.location.href =
+        "https://whop.com/kvfx-algo-indicator/kvfx-x-whisperzonez-foundation/";
+
+    }
+
+    else if (tier === "op") {
+
+        window.location.href =
+        "https://whop.com/kvfx-algo-indicator/operator-foundation/";
+
+    }
+
+    else {
+
+        alert("Systems Lab coming soon.");
+
+    }
+
+});
+
+</script>
+
 
 </body>
 </html>
